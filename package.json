@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/inklein1997/keepup_react/issues"
   },
-  "homepage": "https://github.com/inklein1997/keepup_react#readme"
+  "homepage": "https://github.com/inklein1997/keepup_react#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
