@@ -4,7 +4,12 @@
   "description": "Trello-like application built with React",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js --ignore client",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,7 @@
     "url": "https://github.com/inklein1997/keepup_react/issues"
   },
   "homepage": "https://github.com/inklein1997/keepup_react#readme",
-  "dependencies": {
-    "express": "^4.17.3"
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }

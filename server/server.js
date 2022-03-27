@@ -18,6 +18,6 @@ app.get("/", (req, res) => {
 
 dbConnection.once("open", () => {
   app.listen(PORT, () => {
-    console.log("API running on port ${PORT}");
+    console.log(`API running on port ${PORT}`);
   });
 });
