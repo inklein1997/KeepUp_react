@@ -1,0 +1,26 @@
+{
+  "name": "keepup_react",
+  "version": "1.0.0",
+  "description": "Trello-like application built with React",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inklein1997/keepup_react.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "mongodb",
+    "node",
+    "trello"
+  ],
+  "author": "Michael Klein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inklein1997/keepup_react/issues"
+  },
+  "homepage": "https://github.com/inklein1997/keepup_react#readme"
+}
