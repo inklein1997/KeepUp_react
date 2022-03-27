@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const List = require("./List");
+const User = require("./User");
+const Task = require("./Task");
+
 const projectSchema = new Schema({
   projectName: {
     type: String,
