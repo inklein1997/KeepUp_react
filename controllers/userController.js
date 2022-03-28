@@ -21,7 +21,14 @@ const createUser = async (req, res) => {
       password: req.body.password,
       email: req.body.email,
     });
-    res.status(200).json(userData);
+    req.session.save(() => {
+      req.session.first_name = userData.first_name;
+      req.session.last_name = userData.last_name;
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json("You are logged in");
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,15 +67,20 @@ const loginUser = async (req, res) => {
       return;
     }
     const checkPassword = await userData.checkPassword(req.body.password);
+
     if (!checkPassword) {
       res.status(403).json("Incorrect password");
       return;
     }
+    console.log(userData.first_name);
+
     req.session.save(() => {
-      req.session.first_name = userData.firstName;
-      req.session.last_name = userData.lastName;
+      req.session.first_name = userData.first_name;
+      req.session.last_name = userData.last_name;
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+
+      res.status(200).json("You are logged in");
     });
   } catch (err) {
     res.status(500).json(err);

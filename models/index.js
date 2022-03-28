@@ -1,7 +1,52 @@
 const User = require("./User");
 const Project = require("./Project");
+const UsersToProjects = require("./UsersToProjects");
 const List = require("./List");
 const Task = require("./Task");
 const Note = require("./Note");
 
-module.exports = { User, Project, List, Task, Note };
+Project.belongsToMany(User, {
+  through: {
+    model: UsersToProjects,
+    unique: false,
+  },
+  constraints: false,
+});
+
+User.belongsToMany(Project, {
+  through: {
+    model: UsersToProjects,
+    unique: false,
+  },
+});
+
+List.belongsTo(Project, {
+  constraint: false,
+  foreignKey: "project_id",
+  onDelete: "CASCADE",
+});
+
+Project.hasMany(List, {
+  foreignKey: "project_id",
+});
+
+Task.belongsTo(List, {
+  constraint: false,
+  foreignKey: "list_id",
+  onDelete: "CASCADE",
+});
+
+List.hasMany(Task, {
+  foreignKey: "list_id",
+});
+
+Note.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+User.hasMany(Note, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+module.exports = { User, Project, UsersToProjects, List, Task, Note };
