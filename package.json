@@ -4,12 +4,11 @@
   "description": "Trello-like application built with React",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js --ignore client",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "cd client && npm run build"
+    "start": "node server.js --ignore views",
+    "develop": "concurrently \"npm run watch\" \"cd views && npm start\"",
+    "install": "npm i && cd /views && npm i",
+    "seed": "npm run seed",
+    "build": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,12 +21,20 @@
     "node",
     "trello"
   ],
+  
   "author": "Michael Klein",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/inklein1997/keepup_react/issues"
   },
   "homepage": "https://github.com/inklein1997/keepup_react#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  },
   "devDependencies": {
     "concurrently": "^5.3.0"
   }
