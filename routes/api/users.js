@@ -6,7 +6,7 @@ const {
   loginUser,
   deleteUser,
   logoutUser,
-} = require("../../controllers/userController");
+} = require("../../controllers/userControllers");
 
 router.route("/").post(createUser);
 router.route("/login").post(loginUser);
