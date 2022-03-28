@@ -1,20 +1,39 @@
-const { Schema, model } = require("mongoose");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-const Task = require("./Task");
+class List extends Model {}
 
-const listSchema = new Schema({
-  listTitle: {
-    type: String,
-    require: true,
-  },
-  tasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Task",
+List.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-  ]
-});
-
-const List = model("List", listSchema, "List");
+    list_content: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    position: {
+      type: DataTypes.INTEGER,
+      notNull: true,
+    },
+    project_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "project",
+        key: "id",
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "list",
+  }
+);
 
 module.exports = List;

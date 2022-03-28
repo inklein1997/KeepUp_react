@@ -1,35 +1,36 @@
-const { Schema, model } = require("mongoose");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-const List = require("./List");
-const User = require("./User");
-const Task = require("./Task");
+class Project extends Model {}
 
-const projectSchema = new Schema({
-  projectName: {
-    type: String,
-    require: true,
-    trim: true,
+Project.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
-  lists: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "List",
-    },
-  ],
-  tasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Task",
-    },
-  ],
-  users: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
-});
-
-const Project = model("Project", projectSchema, "Project");
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "project",
+  }
+);
 
 module.exports = Project;
