@@ -3,8 +3,6 @@ const path = require("path")
 require("dotenv").config({});
 
 let sequelize;
-console.log('=-==========================')
-console.log(process.env.DB_USER)
 
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL, {

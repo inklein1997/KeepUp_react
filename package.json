@@ -2,7 +2,7 @@
   "name": "keepup_react",
   "version": "1.0.0",
   "description": "Trello-like application built with React",
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js --ignore views",
     "develop": "concurrently \"npm run watch\" \"cd views && npm start\"",
@@ -21,7 +21,6 @@
     "node",
     "trello"
   ],
-  
   "author": "Michael Klein",
   "license": "MIT",
   "bugs": {
@@ -33,6 +32,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {
