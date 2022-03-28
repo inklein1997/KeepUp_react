@@ -1,3 +1,4 @@
+const { restart } = require("nodemon");
 const { User } = require("../models");
 
 const getSingleUser = async (req, res) => {
@@ -15,10 +16,10 @@ const getSingleUser = async (req, res) => {
 const createUser = async (req, res) => {
   try {
     const userData = await User.create({
-        first_name: req.body.firstName,
-        last_name: req.body.last_name,
-        password: req.body.password,
-        email: req.body.email
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      password: req.body.password,
+      email: req.body.email,
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -40,13 +41,70 @@ const updateUser = async (req, res) => {
       }
     );
     if (!userData) {
-        res.status(404).json("There is no user with that id")
+      res.status(404).json("There is no user with that id");
     } else {
-        res.status(200).json(userData)
+      res.status(200).json(userData);
     }
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-module.exports = {updateUser, createUser, getSingleUser};
+const loginUser = async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { email: req.body.email },
+    });
+    if (!userData) {
+      res.status(404).json("There is no user associated with that email");
+      return;
+    }
+    const checkPassword = await userData.checkPassword(req.body.password);
+    if (!checkPassword) {
+      res.status(403).json("Incorrect password");
+      return;
+    }
+    req.session.save(() => {
+      req.session.first_name = userData.firstName;
+      req.session.last_name = userData.lastName;
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const userData = await User.destroy({
+      where: { id: req.body.params },
+    });
+    if (!userData) {
+      res.status(404).json("There is no user associated with that email");
+      return;
+    }
+    res.status(200).json("User deleted");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const logoutUser = async (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+};
+
+module.exports = {
+  updateUser,
+  createUser,
+  getSingleUser,
+  loginUser,
+  deleteUser,
+  logoutUser,
+};

@@ -29,8 +29,10 @@
   "homepage": "https://github.com/inklein1997/keepup_react#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
     "sequelize": "^6.17.0"
