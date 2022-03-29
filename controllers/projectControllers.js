@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { User, Project, usersToProjects } = require("../../models");
+const { User, Project, UsersToProjects } = require("../models");
 
 const createProject = async (req, res) => {
   try {
     const newProject = await Project.create({
-      ...req.body,
-      projectId: req.session.userId,
+      name: req.body.name,
+      description: req.body.description
     });
 
     res.status(200).json(newProject);
@@ -17,12 +17,12 @@ const createProject = async (req, res) => {
 const linkProjectToUser = async (req, res) => {
   try {
     const userData = await User.findOne({
-        where: { first_name: req.body.user_id },
+        where: { email: req.body.email },
     });
     const projectData = await Project.findOne({
-        where: { name: req.body.project_id },
+        where: { id: req.body.projectId },
     });
-    const newkey = await usersToProjects.create({
+    const newkey = await UsersToProjects.create({
       user_id: userData.id,
       project_id: projectData.id,
     });
@@ -33,7 +33,7 @@ const linkProjectToUser = async (req, res) => {
   }
 };
 
-const deleteProject = (req, res) => {
+const deleteProject = async (req, res) => {
   try {
     const deleteRecord = await usersToProjects.destroy({
       where: {
