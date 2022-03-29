@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js --ignore views",
-    "develop": "concurrently \"npm run watch\" \"cd views && npm start\"",
+    "develop": "concurrently \"npm run start\" \"cd views && npm start\"",
     "install": "npm i && cd /views && npm i",
     "seed": "npm run seed",
     "build": "npm run build"
