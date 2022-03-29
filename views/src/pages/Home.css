@@ -1,0 +1,40 @@
+.background--gradient {
+  height: 92%;
+  background: linear-gradient(#a8d0e6, #374785);
+  overflow-x: hidden;
+  padding:20px;
+}
+
+.h2__home {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.h3__home {
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 1.25rem;
+}
+
+.img__home {
+  height: 50%;
+  transform: translateX(100px);
+}
+
+.btn__green {
+  width: 100% !important;
+  background-color: #51db21;
+  display: block;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 10px;
+  height: 36px;
+  color: white;
+  line-height: 36px;
+  font-weight: 700;
+  transition: 300ms all;
+}
+
+.btn__green:hover {
+  background-color: #39a017e3;
+}
