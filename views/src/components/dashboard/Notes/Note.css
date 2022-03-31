@@ -1,0 +1,26 @@
+.Note {
+
+}
+
+.noteHeader {
+    background-color: #593b3b75;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px;
+}
+
+.h3__title {
+    font-size: 20px;
+}
+
+.noteBody {
+    background-image: url('../../../assets/images/notepad.png');
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.noteBody p {
+    font-size: 20px;
+    margin: 29px 43px;
+    line-height: 1.25;
+}

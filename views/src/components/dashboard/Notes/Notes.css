@@ -1,0 +1,25 @@
+.Card__Notes {
+    background-color: white;
+    height: 100%;
+    flex-basis: 50%;
+    min-width: 378px;
+}
+.h2__title {
+    font-size: 28px;
+}
+
+.img__pencil {
+    width: 27px;
+    height: 27px;
+}
+
+#notesContainer {
+    margin-top: 15px;
+    flex: 1;
+    gap:15px;
+    overflow-y: scroll;
+}
+
+#notesContainer::-webkit-scrollbar {
+    display: none;
+}

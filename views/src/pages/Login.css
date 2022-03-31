@@ -1,0 +1,62 @@
+.background--gradient {
+  height: 92%;
+  background: linear-gradient(#a8d0e6, #374785);
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.div__login {
+  background-color: white;
+  padding: 50px;
+  box-shadow: 0 4px 10px 4px #a8a8a8;
+  border-radius: 6px;
+  height: 65%;
+  justify-content: space-between;
+  width: 40%;
+  margin: 50px auto 0 auto;
+}
+
+.form__login {
+  gap: 15px !important;
+}
+
+.form__login input {
+  background-color: #9f9f9f46;
+}
+
+.h3__formTitle {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn__green--login {
+  width: 100% !important;
+  background-color: #51db21 !important;
+  border-radius: 6px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  transition: 300ms all;
+  cursor: pointer;
+}
+
+.btn__green--login:hover {
+  background-color: #39a017e3 !important;
+}
+
+.btn__green--login:focus {
+  box-shadow: none;
+}
+
+.div__login div h4 {
+    text-align: center;
+}
+
+.div__login div h4 a {
+  color: #007bc2;
+  transition: 300ms all;
+}
+.div__login div h4 a:hover {
+  color: #004770;
+}

@@ -29,6 +29,7 @@ const createUser = async (req, res) => {
 
       res.status(200).json("You are logged in");
     });
+    console.log(req.session)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -72,7 +73,6 @@ const loginUser = async (req, res) => {
       res.status(403).json("Incorrect password");
       return;
     }
-    console.log(userData.first_name);
 
     req.session.save(() => {
       req.session.first_name = userData.first_name;

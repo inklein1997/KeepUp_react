@@ -1,0 +1,49 @@
+.Card__workspaces {
+  background-color: #dde8fd;
+  flex: 1 1 75%;
+}
+
+.h2__title--small--grey {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.52);
+  font-weight: 700;
+}
+
+#projectListContainer {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+#projectListContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#projectListContainer a {
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 150ms all;
+}
+
+#projectListContainer a:hover {
+  cursor: pointer;
+  background-color: #24305e34;
+}
+
+.projectTitle {
+  font-size: 32px;
+}
+
+.projectLogo {
+  background-color: red;
+  width: 40px;
+  border-radius: 6px;
+  display: flex;
+}
+
+.projectLogo p {
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  margin: auto;
+}

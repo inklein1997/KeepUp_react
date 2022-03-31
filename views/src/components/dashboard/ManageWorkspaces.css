@@ -1,0 +1,25 @@
+.Card__manageWorkspaces {
+    background-color: #DDE8FD;
+    flex: 1 1 25%;
+    width: 100%;
+}
+
+.buttons__manageworkspace {
+    flex:1;
+    justify-content: space-around;
+}
+
+.buttons__manageworkspace button {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: start;
+    width: fit-content;
+    border-radius: 6px;
+    transition: all 150ms;
+}
+
+.buttons__manageworkspace button:hover {
+    background-color: rgba(0, 0, 255, 0.527);
+    color: white;
+    cursor: pointer;
+}
