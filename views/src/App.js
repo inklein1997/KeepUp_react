@@ -20,13 +20,13 @@ function App() {
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/signup">
+        <Route path="/signup" exact>
           <SignUp />
         </Route>
-        <Route path="/dashboard">
+        <Route path="/dashboard" exact>
           <Dashboard />
         </Route>
-        <Route path="/project">
+        <Route path="/project" exact>
           <Project />
         </Route>
       </Switch>

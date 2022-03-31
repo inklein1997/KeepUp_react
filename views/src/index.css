@@ -71,6 +71,14 @@ code {
   align-items: center;
 }
 
+.space_around {
+  justify-content: space-around;
+}
+
+.space_evenly {
+  justify-content: space-evenly;
+}
+
 hr {
   border-bottom: none;
 }

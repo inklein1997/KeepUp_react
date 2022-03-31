@@ -1,0 +1,6 @@
+.Card__Chat {
+    background-color: white;
+    flex-basis: 50%;
+    min-width: 378px;
+    height: 100%;
+}

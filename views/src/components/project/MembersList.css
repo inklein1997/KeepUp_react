@@ -1,0 +1,11 @@
+.Card__membersList {
+    background-color: #DDE8FD;
+    flex-basis: 60%;
+}
+
+#memberList {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    overflow-y: scroll;
+}

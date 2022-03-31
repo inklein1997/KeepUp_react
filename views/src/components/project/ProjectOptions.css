@@ -1,0 +1,41 @@
+.Card__projectOptions {
+  background-color: #dde8fd;
+  flex-basis: 40%;
+}
+
+.Card__projectOptions h3 {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#inviteButton {
+  background-color: #4557a1;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 6px;
+  transition: 150ms all;
+}
+
+#inviteButton:hover {
+  background-color: #374785;
+  cursor: pointer;
+}
+
+#removeButton {
+  background-color: #dd0000;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 6px;
+  transition: 150ms all;
+}
+
+#removeButton:hover {
+  background-color: #8a0000;
+  cursor: pointer;
+}
