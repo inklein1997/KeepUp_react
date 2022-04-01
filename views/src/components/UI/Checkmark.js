@@ -4,7 +4,7 @@ import './Checkmark.css'
 
 const Checkmark = () => {
     return (
-      <div class="checkmark">
+      <div className="checkmark">
         <svg
           version="1.1"
           x="0px"
@@ -14,32 +14,32 @@ const Checkmark = () => {
         >
           <g transform="">
             <circle
-              class="path"
+              className="path"
               fill="none"
               stroke="#7DB0D5"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               cx="50"
               cy="50"
               r="44"
             />
             <circle
-              class="fill"
+              className="fill"
               fill="none"
               stroke="#7DB0D5"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               cx="50"
               cy="50"
               r="44"
             />
             <polyline
-              class="check"
+              className="check"
               fill="none"
               stroke="#7DB0D5"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
               points="70,35 45,65 30,52  "
             />
           </g>

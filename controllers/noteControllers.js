@@ -4,8 +4,10 @@ const { Note, User } = require("../models");
 const getAllNotes = async (req, res) => {
   try {
     const noteData = await Note.findAll({
+      where: {user_id: 1},
       include: [{ model: User }],
     });
+
     res.status(200).json(noteData);
   } catch (err) {
     res.status(500).json(err);
@@ -27,6 +29,7 @@ const createNote = async (req, res) => {
 
 const updateNote = async (req, res) => {
   try {
+    console.log(req.session)
     const noteData = await Note.update(
       {
         note_title: req.body.noteTitle,
