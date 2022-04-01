@@ -1,10 +1,9 @@
-const { restart } = require("nodemon");
 const { User, Project } = require("../models");
 
 const getSingleUser = async (req, res) => {
   try {
     const userData = await User.findOne({
-      where: { id: req.params.id },
+      where: { email: req.params.email },
       attributes: { exclude: ["password"] },
     });
     res.status(200).json(userData);
@@ -29,7 +28,7 @@ const createUser = async (req, res) => {
 
       res.status(200).json("You are logged in");
     });
-    console.log(req.session)
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -45,7 +44,7 @@ const updateUser = async (req, res) => {
         email: req.body.email,
       },
       {
-        where: { id: req.params.id },
+        where: { id: req.session.user_id },
       }
     );
     if (!userData) {
@@ -71,16 +70,22 @@ const loginUser = async (req, res) => {
 
     if (!checkPassword) {
       res.status(403).json("Incorrect password");
+      console.log("INVALID PASSWORD")
       return;
     }
 
+    console.log(req.session)
     req.session.save(() => {
+    console.log("POSTAVE");
+
       req.session.first_name = userData.first_name;
       req.session.last_name = userData.last_name;
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      let token = {firstName:req.session.first_name, lastName:req.session.last_name, userId:req.session.user_id}
+      console.log(token)
 
-      res.status(200).json("You are logged in");
+      res.status(200).json({ user: userData, message: "You are now logged in!", token: token });
     });
   } catch (err) {
     res.status(500).json(err);

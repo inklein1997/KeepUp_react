@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import "./Project.css";
 import Chat from "../components/project/Chat";
@@ -7,6 +8,8 @@ import MembersList from "../components/project/MembersList";
 import ProjectOptions from "../components/project/ProjectOptions";
 
 const Project = () => {
+  const { id } = useParams();
+
   return (
     <div className="background__project flex_row">
       <Chat />

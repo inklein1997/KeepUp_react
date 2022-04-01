@@ -1,3 +1,7 @@
 .trelloBoard {
     flex: 1 1 75%;
 }
+
+.board {
+    flex: 1;
+}

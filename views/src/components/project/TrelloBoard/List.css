@@ -1,0 +1,35 @@
+.list {
+    width: 270px;
+    background-color: #374785;
+    border-radius: 6px;
+    padding: 10px;
+    transition: all 0.2s linear;
+    justify-content: space-between;
+}
+
+.list div img {
+    height: 20px;
+}
+
+.h3__title--small {
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.taskContainer {
+    
+}
+
+.btn__addTask {
+    text-align: center;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    transition: 150ms all;
+}
+
+.btn__addTask:hover {
+    cursor: pointer;
+    background-color: #5267bb;
+}

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {Link} from 'react-router-dom'
 
 import "./Workspaces.css";
 import Card from "../UI/Card";
@@ -24,8 +25,8 @@ const Workspaces = () => {
       <hr style={{ margin: "10px 0" }} />
       <div id="projectListContainer">
         {allProject.map((project) => (
-          <a
-            href={`/project/${project.id}`}
+          <Link
+            to={`/project/${project.id}`}
             className="flex__column"
             style={{ display: "flex", gap: "10px" }}
           >
@@ -37,13 +38,15 @@ const Workspaces = () => {
             </div>
             <div>
               <p>
-                <strong>Description: </strong>{project.description}
+                <strong>Description: </strong>
+                {project.description}
               </p>
               <p>
-                <strong>Date Created: </strong>{project.date_created}
+                <strong>Date Created: </strong>
+                {project.date_created}
               </p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </Card>

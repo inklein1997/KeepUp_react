@@ -16,19 +16,21 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const sess = {
+  secret: "Super secret secret",
+  cookie: { maxAge: 600000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
+
 app.use(routes);
 
-app.use(
-  session({
-    secret: process.env.session_secret,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
-  })
-);
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../views/build")));

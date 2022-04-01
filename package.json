@@ -4,7 +4,7 @@
   "description": "Trello-like application built with React",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js --ignore views",
+    "start": "nodemon --ext '*' --ignore views",
     "develop": "concurrently \"npm run start\" \"cd views && npm start\"",
     "install": "npm i && cd /views && npm i",
     "seed": "npm run seed",

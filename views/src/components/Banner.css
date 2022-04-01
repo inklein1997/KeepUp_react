@@ -12,7 +12,7 @@
   align-items: center;
   padding: 10px;
   height: 8%;
-  background-color: #A8D0E6;
+  background-color: #a8d0e6;
 }
 
 .h1__title {
@@ -27,7 +27,7 @@
   transition: all 300ms;
 }
 .btn__text--blue:hover {
-    color: #004369;
+  color: #004369;
 }
 
 .btn__blue {
@@ -41,5 +41,20 @@
 }
 
 .btn__blue:hover {
-    background-color: #21334d;
+  background-color: #21334d;
+}
+
+.btn__logout {
+  background-color: #c70000;
+  font-weight: 600;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  transition: all 300ms;
+}
+
+.btn__logout:hover {
+  background-color: #800000;
+  cursor: pointer;
 }
