@@ -29,7 +29,7 @@ const createNote = async (req, res) => {
 
 const updateNote = async (req, res) => {
   try {
-    console.log(req.session)
+    console.log(req.body)
     const noteData = await Note.update(
       {
         note_title: req.body.noteTitle,

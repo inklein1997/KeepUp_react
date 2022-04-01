@@ -19,7 +19,7 @@ const Notes = () => {
 
   let {
     isLoading1,
-    error,
+    error1,
     sendRequest: createNote,
   } = UseHttp(
     {
@@ -38,24 +38,6 @@ const Notes = () => {
   let {
     isLoading3,
     error3,
-    sendRequest: createNote,
-  } = UseHttp(
-    {
-      url: "api/notes/",
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: {
-        noteTitle: "Click to edit",
-        noteContent: "Click to edit",
-        userId: 1,
-      },
-    },
-    addNoteToState
-  );
-
-  let {
-    loading,
-    err,
     sendRequest: getNotes,
   } = UseHttp(
     {
@@ -64,9 +46,38 @@ const Notes = () => {
     setAllNotes
   );
 
-  const deleteNote = (id) => {
-    let newNotesArr = allNotes.filter((note) => note.id != id);
-    setAllNotes(newNotesArr);
+  const removeNote = async (id) => {
+    let response = await fetch(`/api/notes/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response) {
+      console.log("note deleted");
+      let newNotesArr = allNotes.filter((note) => note.id != id);
+      setAllNotes(newNotesArr);
+    } else {
+      alert("Unable to delete note.  Please try again later");
+    }
+  };
+
+  const updateNote = async (id, title, content) => {
+    let body = JSON.stringify({
+          noteTitle:title,
+          noteContent:content,
+        })
+        console.log(body)
+    let response = await fetch(`api/notes/${id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: body
+      }
+    );
+    if (response) {
+      console.log(response)
+    } else {
+      alert('Unable to edit note.  Please try again later.')
+    }
   };
 
   useEffect(() => {
@@ -79,7 +90,11 @@ const Notes = () => {
         <h2 className="h2__title">Personal Note Taker</h2>
         <div className="flex_row space_between" style={{ gap: "10px" }}>
           <CheckMark />
-          <img src={pencilImage} onClick={createNote} className="img__pencil" />
+          <img
+            src={pencilImage}
+            onClick={() => createNote()}
+            className="img__pencil"
+          />
         </div>
       </div>
       <div id="notesContainer" className="flex__column">
@@ -89,7 +104,8 @@ const Notes = () => {
             id={note.id}
             noteTitle={note.note_title}
             noteContent={note.note_content}
-            deleteNote={deleteNote}
+            removeNote={removeNote}
+            updateNote={updateNote}
           />
         ))}
       </div>
