@@ -95,3 +95,26 @@ button {
 .center {
   text-align: center;
 }
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.vr {
+  display: inline-block;
+  align-self: stretch;
+  width: 1px;
+  min-height: 1em;
+  background-color: currentColor;
+  opacity: .25;
+}
+

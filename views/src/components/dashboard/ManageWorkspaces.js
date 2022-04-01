@@ -83,6 +83,7 @@ const ManageWorkspaces = () => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Create Project"
+        closeTimeoutMS={300}
       >
         <div className="flex__column">
           <h2 className="h2__title center" style={{ marginBottom: "7px" }}>
