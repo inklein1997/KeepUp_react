@@ -91,3 +91,7 @@ button {
 [contenteditable] {
   outline: 0px solid transparent;
 }
+
+.center {
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 const { restart } = require("nodemon");
-const { User } = require("../models");
+const { User, Project } = require("../models");
 
 const getSingleUser = async (req, res) => {
   try {
@@ -112,6 +112,22 @@ const logoutUser = async (req, res) => {
   }
 };
 
+const getProjects = async (req, res) => {
+  try {
+    const projectData = await User.findByPk(1, {
+      attributes: {exclude: ["password"]},
+      include: [{model: Project}]
+    })
+    if (!projectData) {
+      res.status(404).json('Cannot find data.  Please verify id')
+      return
+    }
+    res.status(200).json(projectData)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
+
 module.exports = {
   updateUser,
   createUser,
@@ -119,4 +135,5 @@ module.exports = {
   loginUser,
   deleteUser,
   logoutUser,
+  getProjects
 };

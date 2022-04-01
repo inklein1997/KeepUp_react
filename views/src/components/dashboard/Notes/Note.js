@@ -12,14 +12,14 @@ const Note = (props) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       if (name === "title") {
-        let title = e.target.innerHTML;
+        let title = e.target.innerText;
         let content =
-          e.target.parentNode.parentNode.children[1].children[0].innerHTML;
+          e.target.parentNode.parentNode.children[1].children[0].innerText;
         props.updateNote(props.id, title, content);
       } else {
         let title =
-          e.target.parentNode.parentNode.children[0].children[0].innerHTML;
-        let content = e.target.innerHTML;
+          e.target.parentNode.parentNode.children[0].children[0].innerText;
+        let content = e.target.innerText;
         props.updateNote(props.id, title, content);
       }
       console.log('updated?')
